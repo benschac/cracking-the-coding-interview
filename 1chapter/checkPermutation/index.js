@@ -10,11 +10,20 @@
  * @return {bool}
  */
 function checkPermutation(str1, str2) {
-  const sortStr1 = str1.split('').sort().join();
-  const sortStr2 = str2.split('').sort().join();
+
+  if (str1.length !== str2.length) {
+    return false;
+  }
+  const sortStr = str => str.split('').sort().join();
+
+  const sortStr1 = sortStr(str1);
+  const sortStr2 = sortStr(str2);
 
   return sortStr1 === sortStr2;
 }
+
+
+
 
 
 module.exports = checkPermutation;
